@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Product>
+
+@*
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+*@
+<div class="row pb-3 align-self-sm-center">
+    @foreach( var product in Model)
+    {
+        <div class="col-lg-3  col-md-6 col-sm-9 align-self-center">
+            <div class="row p-2">
+                <div class="col-12 p-1" style="border:1px solid #000; border-radius:7px;">
+                    <div class="card">
+                        <img src="@product.ImageUrl" class="card-img-top rounded-4"/>
+
+                      <div class="card-body">
+                            <div class="pl-1">
+                                <p class="card-title h5  text-info">@product.DeviceName</p>
+                            </div>
+                            <div class="pl-1">
+                                <p>List Price: <strike><b>$@product.ListPrice</b></strike></p>
+                            </div>
+                            <div class="pl-1">
+                                <p>As low as: <b>$@product.Price100</b></p>
+                            </div>
+                      </div>
+                      <div>
+                            <a asp-action="Details" class="btn btn-primary form-control" asp-route-productId="@product.Id">
+                              Details
+                          </a>
+                      </div>
+
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+    }
+</div>
